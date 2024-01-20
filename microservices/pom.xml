@@ -1,91 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-1:00
-amazing art
-￼
-FSMJ
-￼
-Onboarding UI Designs - Design Freebies
-￼
-Barn Home by Sauquet Arquitectes | HomeAdore
-￼
-Furniture Design Home Entrance Wall Decoration Room Decoration Ceiling Design Bedroom Design Light
-￼
-Unique collection
-￼
-Alexa / Digital journal
-￼
-alexa || bullet journals
-￼
-0:17
-funny video
-￼
-Reese
-￼
-￼
-￼
-ッ rᥲᥙ𝖿ᥡᥲrᥲһ࿐
-￼
-Grey cable knit sweater – Made in italy - S / 44-46 (IT-EU) / 34-36 (US-UK)
-￼
-Pini Parma
-￼
-Beste Gerichte unter 2 Euro: 4 gunstige Rezepte
-￼
-NAUMOO Natural Wood Desk Organizer - Multi-Compartment Wooden Organizers for Home, Office, Cubicle Accessories - Table Caddy for Desktop and Workspace - Pencil Storage Tray
-"Shoulder Soothe: 5 Gentle Exercises for Relief from Shoulder Pain"
-￼
-Beauty| Weight Loss| Home Workout| Skin Care| Hairstyle |Outfit
-￼
-￼
-eve
-￼
-Clothing
-￼
-Enregistrer
-gohobi.co.uk
-￼
-￼
-
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.1</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>3.1.7</version>
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>tn.arch</groupId>
-	<artifactId>microservices</artifactId>
+	<groupId>org.ms</groupId>
+	<artifactId>eureka-discovery-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <name>microservices</name>
-	<description>Arch microservices project for uni</description>
-    <modules>
-        <module>product-service</module>
-		<module>facture-service</module>
-		<module>reglement-service</module>
-		<module>devise-service</module>
-		<module>client-service</module>
-		<module>api-gateway</module>
-        <module>discovery-server</module>
-    </modules>
-    <properties>
+	<name>eureka-discovery-service</name>
+	<description>Demo project for Spring Boot</description>
+	<properties>
 		<java.version>17</java.version>
-		<maven.compiler.source>17</maven.compiler.source>
-		<maven.compiler.target>17</maven.compiler.target>
-		<spring-cloud.version>2021.0.2</spring-cloud.version>
+		<spring-cloud.version>2022.0.4</spring-cloud.version>
 	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
-				<groupId>org.testcontainers</groupId>
-				<artifactId>testcontainers-bom</artifactId>
-				<version>1.16.3</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
@@ -95,18 +41,17 @@ gohobi.co.uk
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-autoconfigure</artifactId>
-		</dependency>
-	</dependencies>
 
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>
+						<builder>paketobuildpacks/builder-jammy-base:latest</builder>
+					</image>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

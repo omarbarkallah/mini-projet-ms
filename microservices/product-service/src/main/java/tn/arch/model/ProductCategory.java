@@ -26,5 +26,9 @@ public class ProductCategory
     private LocalDateTime createdAt;
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+	public void setId(Long id2) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
